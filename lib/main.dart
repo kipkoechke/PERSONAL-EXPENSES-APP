@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses',
       theme: ThemeData(
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber,
           fontFamily: 'Quicksand',
           textTheme: ThemeData.light().textTheme.copyWith(
                 titleMedium: TextStyle(
@@ -22,29 +24,14 @@ class MyApp extends StatelessWidget {
                 ),
               ),
           appBarTheme: AppBarTheme(
-            toolbarTextStyle: ThemeData.light()
-                .textTheme
-                .copyWith(
+            textTheme: ThemeData.light().textTheme.copyWith(
                   titleMedium: TextStyle(
                     fontFamily: 'OpenSans',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
-                )
-                .bodyText2,
-            titleTextStyle: ThemeData.light()
-                .textTheme
-                .copyWith(
-                  titleMedium: TextStyle(
-                    fontFamily: 'OpenSans',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-                .headline6,
-          ),
-          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
-              .copyWith(secondary: Colors.amber)),
+                ),
+          )),
       home: MyHomePage(),
     );
   }
