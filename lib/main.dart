@@ -63,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 2.0,
-                          color: Colors.black,
+                          color: Colors.purple,
                         ),
                       ),
                       child: Text(
