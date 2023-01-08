@@ -49,16 +49,17 @@ class MyHomePage extends StatelessWidget {
               elevation: 5.0,
             ),
           ),
-          Card(
-            color: Colors.red,
-            child: Text(
-              'LIST OF TRANSACTION',
-            ),
-          )
+          Column(
+            children: transactions.map((tx) {
+              return Card(
+                child: Text(
+                  tx.title,
+                ),
+              );
+            }).toList(),
+          ),
         ],
       ),
     );
   }
-  
-
 }
