@@ -4,13 +4,15 @@ import './transaction_list.dart';
 
 import './new_transaction.dart';
 
-class USerTransactions extends StatefulWidget {
+class UserTransactions extends StatefulWidget {
   @override
-  State<USerTransactions> createState() => _USerTransactionsState();
+  State<UserTransactions> createState() => _UserTransactionsState();
 }
 
-class _USerTransactionsState extends State<USerTransactions> {
-  final List<Transaction> _userTransactions = [
+
+
+class _UserTransactionsState extends State<UserTransactions> {
+  final List<Transaction> _UserTransactions = [
     Transaction(
       id: 't1',
       title: 'New Shoe',
@@ -24,12 +26,25 @@ class _USerTransactionsState extends State<USerTransactions> {
       date: DateTime.now(),
     )
   ];
+
+  void _addTransaction(String transationTitle, double transactionAmount) {
+    final newTransaction = Transaction(
+      title: transationTitle,
+      amount: transactionAmount,
+      date: DateTime.now(),
+      id: DateTime.now().toString(),
+    );
+
+    setState(() {
+      _UserTransactions.add(newTransaction);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         NewTransaction(),
-        TransactionList(_userTransactions),
+        TransactionList(_UserTransactions),
       ],
     );
   }
