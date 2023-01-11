@@ -9,12 +9,16 @@ class NewTransaction extends StatefulWidget {
   @override
   State<NewTransaction> createState() => _NewTransactionState();
 }
+
 class _NewTransactionState extends State<NewTransaction> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
   DateTime? _selectedDate;
 
   void _submitData() {
+    if (_amountController.text.isEmpty) {
+      return;
+    }
     final enteredTitle = _titleController.text;
     final enteredAmount = double.parse(_amountController.text);
 
@@ -24,6 +28,7 @@ class _NewTransactionState extends State<NewTransaction> {
     widget.addTransaction(
       enteredTitle,
       enteredAmount,
+      _selectedDate,
     );
 
     Navigator.of(context).pop();
